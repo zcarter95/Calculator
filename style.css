@@ -16,10 +16,11 @@ body{
 
 .screen-container {
     display: flex;
-    flex: 1;
+    flex-direction: column;
     height: 200px;
     align-items: center;
     justify-content: center;
+    
 }
 
 .screen {
@@ -29,8 +30,16 @@ body{
     display: flex;
     background-color: black;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.operations {
+    font-size: 24px;
+    text-align: right;
+    color: white;
+    height: 50px;
+    width: 265px;
 }
 
 .screen-text {
@@ -38,11 +47,12 @@ body{
     font-size: 58px;
     flex: 1;
     width: 265px;
-    height: 125px;
+    height: 75px;
     overflow-wrap: break-word;
     padding-left: 5px;
     padding-right: 5px;
     text-align: right;
+    
 }
 
 .buttons {
