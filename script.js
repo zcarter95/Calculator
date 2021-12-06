@@ -32,4 +32,27 @@ function operate (operator, num1, num2){
     }
 }
 
-console.log(operate(divide, 2, 2))
+const display = document.querySelector('.screen-text');
+const numberButtons = document.querySelectorAll('.number-button');
+
+let displayValue = 0;
+display.textContent = displayValue;
+
+//add event listener to all number buttons and update the display value
+numberButtons.forEach(button =>{
+    button.addEventListener('click', (event) => {
+        if (displayValue === 0){
+            displayValue = event.target.textContent;
+        }
+        else if (display.textContent.length < 9){
+            displayValue += event.target.textContent;
+        }
+        else {
+            return;
+        }
+        display.textContent = displayValue;
+    })
+})
+
+
+
