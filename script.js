@@ -73,6 +73,7 @@ numberButtons.forEach(button =>{
             }
             else if (!num1Input){
                 num2 = displayValue
+                console.log(num2);
                 history.textContent += ` ${num2}`
             }
         }
@@ -84,6 +85,7 @@ numberButtons.forEach(button =>{
             }
             else if (!num1Input){
                 num2 = displayValue
+                console.log(num2);
                 history.textContent += ` ${num2}`
             }
         }
@@ -149,7 +151,6 @@ operators.forEach(button => {
                     num1Input = false;
                 }
                 else if (previousOperator === 'plus-button' || previousOperator === 'times-button' || previousOperator === 'divide-button'){
-                    console.log(`num1: ${num1}, result: ${result}`);
                     switch (previousOperator){
                         case 'plus-button': {
                             equals(num1, num2, 0);
@@ -170,7 +171,7 @@ operators.forEach(button => {
                         }
                     }
                 }
-                history.textContent = `${num1} -`
+                history.textContent = `${num1} -`;
                 break;
             }
             case 'times-button': {
@@ -181,7 +182,6 @@ operators.forEach(button => {
                     num1Input = false;
                 }
                 else if (previousOperator === 'plus-button' || previousOperator === 'divide-button' || previousOperator === 'minus-button'){
-                    console.log(previousOperator);
                     switch (previousOperator){
                         case 'plus-button': {
                             equals(num1, num2, 0);
@@ -190,7 +190,6 @@ operators.forEach(button => {
                             break;
                         }
                         case 'minus-button': {
-                            console.log(`num1: ${num1}, num2: ${num2}`);
                             equals(num1, num2, 1);
                             num1 = result;
                             num1Input = false;
@@ -216,7 +215,6 @@ operators.forEach(button => {
                 else if (previousOperator === 'plus-button' || previousOperator === 'times-button' || previousOperator === 'minus-button'){
                     switch (previousOperator){
                         case 'plus-button': {
-                            console.log('I should add previous two numbers');
                             equals(num1, num2, 0);
                             num1 = result;
                             num1Input = false;
