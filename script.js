@@ -22,16 +22,37 @@ function operate (operator, num1, num2){
     switch (operator){
         case 0:
             result = add(num1, num2);
-            return result;
+            if (result > 999999999){
+                return result.toExponential(3);
+            }
+            else{
+                return (Math.round(result * 1000) / 1000);
+            }
+            
         case 1: 
             result = subtract(num1, num2);
-            return result;
+            if (result > 999999999){
+                return result.toExponential(3);
+            }
+            else{
+                return (Math.round(result * 1000) / 1000);
+            }
         case 2: 
             result = multiply(num1, num2);
-            return result;
+            if (result > 999999999){
+                return result.toExponential(3);
+            }
+            else{
+                return (Math.round(result * 1000) / 1000);
+            }
         case 3:
             result = divide(num1, num2);
-            return result;
+            if (result > 999999999){
+                return result.toExponential(3);
+            }
+            else{
+                return (Math.round(result * 1000) / 1000);
+            }
     }
 }
 
@@ -49,6 +70,8 @@ const numberButtons = document.querySelectorAll('.number-button');
 const equalButton = document.querySelector('.equals-button');
 const operators = document.querySelectorAll('.operator-button');
 const clearButton = document.querySelector('.clear-button');
+const decimalButton = document.querySelector('.decimal-button');
+const functionButtons = document.querySelectorAll('.function-button');
 
 let displayValue = 0;
 let result = 0;
@@ -65,6 +88,7 @@ let inputHistory = [];
 //add event listener to all number buttons and update the display value
 numberButtons.forEach(button =>{
     button.addEventListener('click', (event) => {
+        console.log(event.target.textContent)
         inputHistory.push(event.target.classList[1]);
         if (displayValue === 0){
             displayValue = event.target.textContent;
@@ -260,6 +284,59 @@ clearButton.addEventListener('click', () => {
     textHitory = false;
     history.textContent = '';
 })
+
+decimalButton.addEventListener('click', () =>{
+    if (!displayValue.includes('.')){
+        displayValue += '.';
+    display.textContent = displayValue;
+    }
+    else return;
+    
+})
+
+decimalButton.addEventListener('mouseenter', () =>{
+    decimalButton.classList.add('number-hover');
+})
+decimalButton.addEventListener('mouseleave', () =>{
+    decimalButton.classList.remove('number-hover');
+})
+
+numberButtons.forEach(button =>{
+    button.addEventListener('mouseenter', () =>{
+        button.classList.add('number-hover');
+    })
+    button.addEventListener('mouseleave', () => {
+        button.classList.remove('number-hover');
+    })
+})
+
+functionButtons.forEach(button => {
+    button.addEventListener('mouseenter', () =>{
+        button.classList.add('function-hover');
+    })
+     button.addEventListener('mouseleave', () => {
+         button.classList.remove('function-hover');
+     })
+})
+
+operators.forEach(button => {
+    button.addEventListener('mouseenter', () =>{
+        button.classList.add('operator-hover');
+    })
+    button.addEventListener('mouseleave', () =>{
+        button.classList.remove('operator-hover');
+    })
+})
+
+equalButton.addEventListener('mouseenter', () =>{
+    equalButton.classList.add('operator-hover');
+})
+equalButton.addEventListener('mouseleave', () =>{
+    equalButton.classList.remove('operator-hover');
+})
+
+
+
 
 
 

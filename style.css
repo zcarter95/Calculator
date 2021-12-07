@@ -81,16 +81,28 @@ button {
 }
 
 .function-button {
-    background-color: lightgrey;
+    background-color: #BFBFBF;
     color: black;
 }
 
 .operator-button, .equals-button {
-    background-color: orange;
+    background-color: #FFA64F;
     color: white;
 }
 
-.number-button {
-    background-color: darkgray;
+.operator-hover {
+    background-color: #FF7E02;
+}
+
+.number-button, .decimal-button {
+    background-color: #737373;
     color: white;
+}
+
+.number-hover {
+    background-color: #404040;
+}
+
+.function-hover {
+    background-color: #737373;
 }
