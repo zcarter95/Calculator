@@ -40,7 +40,6 @@ function clear(){
     num2 = 0;
     displayValue = 0;
     num1Input = true;
-    history.textContent = '';
 }
 
 //elements
@@ -56,6 +55,8 @@ let result = 0;
 let num1 = displayValue;
 let num2 = 0;
 let operator;
+let textHitory = false;
+let firstHalf = '';
 display.textContent = displayValue;
 
 let num1Input = true;
@@ -74,7 +75,6 @@ numberButtons.forEach(button =>{
             else if (!num1Input){
                 num2 = displayValue
                 console.log(num2);
-                history.textContent += ` ${num2}`
             }
         }
         else if (display.textContent.length < 9){
@@ -84,9 +84,7 @@ numberButtons.forEach(button =>{
                 num1 = displayValue
             }
             else if (!num1Input){
-                num2 = displayValue
-                console.log(num2);
-                history.textContent += ` ${num2}`
+                num2 = displayValue;
             }
         }
         else {
@@ -101,6 +99,7 @@ function equals (number1, number2, math){
     let float2 = parseFloat(number2);
     result = operate(math, float1, float2);
     display.textContent = result;
+    history.textContent = `${firstHalf} ${number2} =`;
     return result;
 }
 
@@ -140,7 +139,9 @@ operators.forEach(button => {
                         }
                     }
                 }
-                history.textContent = `${num1} +`;
+                firstHalf = `${num1} +`;
+                history.textContent = firstHalf
+                textHitory = true;
                 break;
             }
             case 'minus-button': {
@@ -171,7 +172,8 @@ operators.forEach(button => {
                         }
                     }
                 }
-                history.textContent = `${num1} -`;
+                firstHalf = `${num1} -`;
+                history.textContent = firstHalf
                 break;
             }
             case 'times-button': {
@@ -202,7 +204,8 @@ operators.forEach(button => {
                         }
                     }
                 }
-                history.textContent = `${num1} x`;
+                firstHalf = `${num1} x`;
+                history.textContent = firstHalf
                 break;
             }
             case 'divide-button': {
@@ -233,7 +236,8 @@ operators.forEach(button => {
                         }
                     }
                 }
-                history.textContent = `${num1} \u00F7`
+                firstHalf = `${num1} \u00F7`;
+                history.textContent = firstHalf
                 break;
             }
             
@@ -253,6 +257,8 @@ clearButton.addEventListener('click', () => {
     display.textContent = displayValue;
     lastKeyPressed = 'clear';
     inputHistory = [];
+    textHitory = false;
+    history.textContent = '';
 })
 
 
