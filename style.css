@@ -12,6 +12,7 @@ body{
     border-radius: 12px;
     width: 325px;
     height: 550px;
+    box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.5);
 }
 
 .screen-container {
@@ -28,7 +29,7 @@ body{
     width: 275px;
     border-radius: 12px;
     display: flex;
-    background-color: black;
+    background-color: darkgray;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
@@ -67,10 +68,12 @@ body{
 
 button {
     border-radius: 12px;
+    border: 0px solid transparent;
     height: 65px;
     width: 65px;
     font-size: 24px;
     font-weight: bold;
+    box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.5);
 }
 
 .zero-button {
@@ -82,7 +85,7 @@ button {
     color: black;
 }
 
-.operator-button {
+.operator-button, .equals-button {
     background-color: orange;
     color: white;
 }
